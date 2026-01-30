@@ -64,25 +64,29 @@ The application will be available at `http://localhost:5173`
 - `npm run lint` - Run ESLint
 - `npm run typecheck` - Run TypeScript type checking
 
-## 🚀 Deployment on Render
+## 🚀 Deployment
 
-This project is configured for easy deployment on Render.com:
+### GitHub Pages (Recommended)
 
-### Automatic Deployment
+This project is configured for automatic deployment to GitHub Pages:
 
-1. Fork this repository or push to your GitHub repository
-2. Connect your GitHub account to Render
-3. Create a new Static Site on Render
-4. Connect your repository
-5. Render will automatically detect the build settings from `render.yaml`
+1. **Enable GitHub Pages**:
+   - Go to repository Settings → Pages
+   - Select "GitHub Actions" as source
 
-### Manual Configuration
+2. **Push to main branch**:
+   ```bash
+   git push
+   ```
 
-If you prefer manual setup:
+3. **Your site will be live at**:
+   `https://sailendrakondapalli.github.io/NaveenBroTask_1_1/`
 
-1. **Build Command**: `npm install && npm run build`
-2. **Publish Directory**: `dist`
-3. **Environment**: Static Site
+The GitHub Actions workflow automatically builds and deploys on every push to main.
+
+### Alternative: Render Deployment
+
+For Render deployment, see [DEPLOYMENT.md](./DEPLOYMENT.md)
 
 ### Environment Variables
 
@@ -141,8 +145,9 @@ This project is licensed under the MIT License.
 
 ## 🔗 Links
 
-- **Live Demo**: [Deploy on Render](https://render.com)
+- **Live Demo**: [https://sailendrakondapalli.github.io/NaveenBroTask_1_1/](https://sailendrakondapalli.github.io/NaveenBroTask_1_1/)
 - **Repository**: [GitHub](https://github.com/sailendrakondapalli/NaveenBroTask_1_1.git)
+- **Deployment Guide**: [GitHub Pages Setup](./GITHUB_PAGES_DEPLOYMENT.md)
 
 ---
 
