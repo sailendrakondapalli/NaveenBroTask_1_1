@@ -1,126 +1,149 @@
-# PowerStack - Power Platform Components Marketplace
+# NaveenBroTask_1_1
 
-A modern, responsive web application for sharing and managing Power Platform components including Power Apps, Power BI, and Power Automate solutions.
+A modern React application built with TypeScript, Vite, and Tailwind CSS, featuring Supabase integration for authentication and data management.
 
 ## 🚀 Features
 
-### Public Features
-- **Component Library**: Browse Power Apps, Power BI, and Power Automate components
-- **Google Authentication**: Required for copying code and downloading components
-- **YouTube Integration**: Watch tutorial videos and subscribe to channel
-- **Professional Services**: Pricing and contact information for custom development
-- **Responsive Design**: Works perfectly on desktop, tablet, and mobile
+- **React 18** with TypeScript
+- **Vite** for fast development and building
+- **Tailwind CSS** for styling
+- **Supabase** integration for backend services
+- **React Router** for navigation
+- **Lucide React** for icons
+- Responsive design
+- Modern component architecture
 
-### Admin Features
-- **Content Management**: Add, edit, and publish posts and YouTube videos
-- **Rich Editor**: Support for YAML/code content with syntax highlighting
-- **Image Management**: Upload and manage 16:9 aspect ratio images
-- **Publishing Control**: Draft and publish content with toggle controls
-- **User Management**: Admin-only access with email-based authentication
+## 📦 Tech Stack
 
-## 🛠️ Tech Stack
+- React 18.3.1
+- TypeScript 5.5.3
+- Vite 5.4.2
+- Tailwind CSS 3.4.1
+- Supabase 2.57.4
+- React Router DOM 7.9.3
+- Lucide React 0.344.0
 
-- **Frontend**: React 18, TypeScript, Tailwind CSS
-- **Backend**: Supabase (PostgreSQL, Authentication, Storage)
-- **Icons**: Lucide React
-- **Routing**: React Router DOM
-- **Build Tool**: Vite
+## 🛠️ Development
 
-## 📋 Setup Instructions
+### Prerequisites
 
-### 1. Supabase Configuration
+- Node.js (v16 or higher)
+- npm or yarn
 
-1. Create a new Supabase project at [supabase.com](https://supabase.com)
-2. Copy your project URL and anon key
-3. Update the `.env` file with your credentials:
-   ```
-   VITE_SUPABASE_URL=your_supabase_url
-   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
-   ```
+### Installation
 
-### 2. Database Setup
-
-1. In your Supabase dashboard, go to SQL Editor
-2. Run the migration file: `supabase/migrations/create_powerstack_complete_schema.sql`
-3. This will create all necessary tables and security policies
-
-### 3. Authentication Setup
-
-1. In Supabase dashboard, go to Authentication > Providers
-2. Enable Google OAuth provider
-3. Add your Google OAuth credentials
-4. Set redirect URL to: `https://yourdomain.com/auth/callback`
-
-### 4. Admin Configuration
-
-Update the admin email in `src/hooks/useAuth.ts`:
-```typescript
-isAdmin: user?.email === 'your-actual-admin-email@gmail.com'
+1. Clone the repository:
+```bash
+git clone https://github.com/sailendrakondapalli/NaveenBroTask_1_1.git
+cd NaveenBroTask_1_1
 ```
 
-### 5. External Links Configuration
+2. Install dependencies:
+```bash
+npm install
+```
 
-Update the following placeholder links in the components:
+3. Set up environment variables:
+```bash
+cp .env.example .env
+# Add your Supabase credentials to .env
+```
 
-**Sidebar.tsx**:
-- PayPal donation link
-- Buy Me a Coffee link
-- WhatsApp number
-- Email address
+4. Start the development server:
+```bash
+npm run dev
+```
 
-**PricingSection.tsx**:
-- Upwork profile URL
-- WhatsApp number
-- Email address
+The application will be available at `http://localhost:5173`
 
-**YouTubeSection.tsx & Footer.tsx**:
-- YouTube channel URL
-- LinkedIn profile
-- GitHub profile
+### Available Scripts
 
-## 🎨 Design Features
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run typecheck` - Run TypeScript type checking
 
-- **Clean, Modern UI**: Professional design with teal and orange accent colors
-- **Responsive Layout**: Mobile-first design that works on all devices
-- **16:9 Image Support**: Optimized for component preview images
-- **Smooth Animations**: Hover effects and transitions throughout
-- **Accessibility**: Proper contrast ratios and keyboard navigation
+## 🚀 Deployment on Render
 
-## 🔒 Security
+This project is configured for easy deployment on Render.com:
 
-- **Row Level Security (RLS)**: Implemented on all database tables
-- **Authentication Required**: Copy and download features require Google sign-in
-- **Admin-Only Access**: Content management restricted to admin users
-- **Secure API**: All database operations through Supabase with proper policies
+### Automatic Deployment
 
-## 📱 Mobile Responsive
+1. Fork this repository or push to your GitHub repository
+2. Connect your GitHub account to Render
+3. Create a new Static Site on Render
+4. Connect your repository
+5. Render will automatically detect the build settings from `render.yaml`
 
-The application is fully responsive with:
-- Mobile-optimized navigation
-- Touch-friendly buttons and interactions
-- Responsive grid layouts
-- Optimized images and loading states
+### Manual Configuration
 
-## 🚀 Deployment
+If you prefer manual setup:
 
-The application is ready for deployment on platforms like:
-- Vercel
-- Netlify
-- Bolt Hosting
+1. **Build Command**: `npm install && npm run build`
+2. **Publish Directory**: `dist`
+3. **Environment**: Static Site
 
-Make sure to:
-1. Set environment variables in your deployment platform
-2. Configure OAuth redirect URLs for your domain
-3. Test all functionality in production environment
+### Environment Variables
 
-## 📞 Support
+Make sure to set up the following environment variables in Render:
 
-For support or custom development services:
-- **Email**: your-email@gmail.com
-- **WhatsApp**: +1234567890
-- **Upwork**: [Your Upwork Profile]
-- **Rate**: $20/hour for custom Power Platform development
+- `VITE_SUPABASE_URL` - Your Supabase project URL
+- `VITE_SUPABASE_ANON_KEY` - Your Supabase anonymous key
+
+## 📁 Project Structure
+
+```
+src/
+├── components/          # React components
+│   ├── AdminDashboard.tsx
+│   ├── AuthCallback.tsx
+│   ├── CategoryPage.tsx
+│   ├── ComponentsLibrary.tsx
+│   ├── ContactForm.tsx
+│   ├── Footer.tsx
+│   ├── Header.tsx
+│   ├── Hero.tsx
+│   ├── PricingSection.tsx
+│   ├── Sidebar.tsx
+│   └── YouTubeSection.tsx
+├── hooks/              # Custom React hooks
+│   └── useAuth.ts
+├── lib/                # Utility libraries
+│   └── supabase.ts
+├── App.tsx             # Main App component
+├── main.tsx            # Application entry point
+└── index.css           # Global styles
+```
+
+## 🗄️ Database
+
+The project uses Supabase for backend services. Database migrations are located in:
+
+```
+supabase/migrations/
+├── 20250927040830_red_lodge.sql
+├── 20250928033114_autumn_waterfall.sql
+└── 20251011082310_patient_field.sql
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+## 🔗 Links
+
+- **Live Demo**: [Deploy on Render](https://render.com)
+- **Repository**: [GitHub](https://github.com/sailendrakondapalli/NaveenBroTask_1_1.git)
+
+---
+
+Built with ❤️ using React, TypeScript, and Vite
